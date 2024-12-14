@@ -1,0 +1,22 @@
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+.swiper-pagination {
+  position: static;
+  margin-top: 20px;
+}
+.swiper-pagination-bullet {
+  background-color: #c4e4f4; /* Default gray color */
+  width: 12px;
+  height: 8px;
+  opacity: 1;
+  margin: 20px 4px 0px; /* Adjust spacing between dots */
+  border-radius: 12px;
+}
+
+.swiper-pagination-bullet-active {
+  width: 24px;
+  background-color: #3b82f6; /* Blue color for active dot */
+  border-radius: 12px;
+}
