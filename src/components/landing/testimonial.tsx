@@ -1,5 +1,5 @@
-import stars from "../assets/stars.svg";
-import jb from "../assets/jb.svg";
+import stars from "../../assets/stars.svg";
+import jb from "../../assets/jb.svg";
 const Testimonial = () => {
   return (
     <div className="p-6 flex flex-col gap-8 w-full max-w-[21rem] sm:max-w-[24.125rem] border border-[#D9D9D9] rounded-lg">
