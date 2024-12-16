@@ -22,7 +22,7 @@ interface UserType {
   city: string;
   state: string;
   country: string;
-  zipCode: string;
+  zipCode: number;
   academicBackground: academicBackgroundType[];
 }
 export type { UserType, academicBackgroundType };

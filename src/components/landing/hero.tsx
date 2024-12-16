@@ -43,7 +43,7 @@ const Hero = () => {
             <p>How it works </p>
           </AnchorLink>
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 text-sm">
           <button className="px-[2.3125rem] py-[0.625rem] border border-white">
             Login
           </button>
@@ -62,7 +62,7 @@ const Hero = () => {
             <AnchorLink href="#how-it-works">
               <p>How it works </p>
             </AnchorLink>
-            <div className="flex justify-center gap-4">
+            <div className="flex justify-center gap-4 text-sm">
               <button className="w-full py-[0.625rem] border border-white">
                 Login
               </button>
@@ -76,7 +76,7 @@ const Hero = () => {
       <div className="flex justify-between xl:justify-center items-center px-8 sm:px-16 xl:gap-[5.875rem] relative h-full">
         <div className="max-w-[35.9375rem] w-full flex flex-col gap-8 pr-5 xl:pr-0 z-10">
           <div className="flex flex-col gap-6">
-            <p className="text-2xl md:text-[3.5rem] md:leading-[4rem]">
+            <p className="text-2xl font-bold md:text-[3.5rem] md:leading-[4rem]">
               Providing the Right{" "}
               <span className="text-secondaryYellow300">Support</span> for{" "}
               <span className="text-secondaryYellow300">Home Adaptation</span>{" "}

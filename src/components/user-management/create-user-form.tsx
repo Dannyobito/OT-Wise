@@ -52,26 +52,8 @@ const CreateUserForm = () => {
     alert("User added successfully!");
   };
 
-  //   const validateStep = async (stepIndex: number) => {
-  //     const fieldsToValidate: { [key: number]: string[] } = {
-  //       0: ["firstName", "lastName", "dob", "gender"],
-  //       1: ["profilePhoto"],
-  //       2: ["email", "phoneNumber"],
-  //       3: ["academicBackground"],
-  //     };
-
-  //     const fields = fieldsToValidate[stepIndex] || [];
-  //     return await trigger(fields as any);
-  //   };
   return (
-    <FormWizard
-      stepSize="sm"
-      onComplete={handleSubmit(handleComplete)}
-      onTabChange={({ prevIndex, nextIndex }) =>
-        console.log(`Navigated from tab ${prevIndex} to ${nextIndex}`)
-      }
-    >
-      {/* Step 1: Personal Details */}
+    <FormWizard stepSize="sm" onComplete={handleSubmit(handleComplete)}>
       <FormWizard.TabContent title="Personal Details" icon="ti-user">
         <h2 className="text-xl font-semibold mb-4">Personal Details</h2>
         <h3 className="text-xl font-semibold mb-4">Upload Profile Photo</h3>
@@ -121,7 +103,6 @@ const CreateUserForm = () => {
         </select>
         {errors.gender && <p className="error">{errors.gender.message}</p>}
       </FormWizard.TabContent>
-      {/* Step 3: Contact Info */}
       <FormWizard.TabContent title="Contact Info" icon="ti-settings">
         <h2 className="text-xl font-semibold mb-4">Contact Info</h2>
         <input
@@ -151,8 +132,47 @@ const CreateUserForm = () => {
           className="input"
         />
       </FormWizard.TabContent>
-
-      {/* Step 4: Academic Background */}
+      <FormWizard.TabContent title="Address" icon="ti-settings">
+        <h2 className="text-xl font-semibold mb-4">Address Info</h2>
+        <input
+          {...register("address", { required: "Address is required" })}
+          placeholder="address"
+          className="input"
+        />
+        {errors.email && <p className="error">{errors.email.message}</p>}
+        <input
+          {...register("city", {
+            required: "City is required",
+          })}
+          placeholder="City"
+          className="input"
+        />
+        {errors.phoneNumber && (
+          <p className="error">{errors.phoneNumber.message}</p>
+        )}
+        <input
+          {...register("state", {
+            required: "State is required",
+          })}
+          placeholder="State"
+          className="input"
+        />
+        <input
+          {...register("country", {
+            required: "Country is required",
+          })}
+          placeholder="Country"
+          className="input"
+        />
+        <input
+          {...register("zipCode", {
+            required: "Zip Code is required",
+          })}
+          placeholder="Zip Code"
+          className="input"
+          type="number"
+        />
+      </FormWizard.TabContent>
       <FormWizard.TabContent title="Academic Background" icon="ti-book">
         <h2 className="text-xl font-semibold mb-4">Academic Background</h2>
         {fields.map((item, index) => (
@@ -224,8 +244,6 @@ const CreateUserForm = () => {
           Add Academic Entry
         </button>
       </FormWizard.TabContent>
-
-      {/* Step 5: Review */}
       <FormWizard.TabContent
         title="Review"
         icon="ti-check"
@@ -237,7 +255,6 @@ const CreateUserForm = () => {
           <h3 className="text-lg font-bold">Personal Details</h3>
           {imagePreview && (
             <div className="">
-              <h3 className="text-lg font-bold mt-4">Profile Photo</h3>
               <div className="w-full flex justify-center">
                 <img
                   src={imagePreview}

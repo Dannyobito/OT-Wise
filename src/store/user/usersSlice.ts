@@ -10,7 +10,7 @@ const usersSlice = createSlice({
       state.push(action.payload);
     },
     deleteUser(state, action: PayloadAction<number>) {
-      state = state.filter((user) => user.id !== action.payload);
+      return state.filter((user) => user.id !== action.payload);
     },
     updateUser: (state, action: PayloadAction<UserType>) => {
       const index = state.findIndex((user) => user.id === action.payload.id);

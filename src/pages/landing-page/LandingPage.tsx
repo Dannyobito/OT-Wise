@@ -29,7 +29,7 @@ const LandingPage = () => {
           </div>
           <div className="max-w-[35.9375rem] w-full flex flex-col gap-8 z-10 text-black">
             <div className="flex flex-col gap-6">
-              <p className="text-2xl md:text-[2.5rem] md:leading-[3rem]">
+              <p className="text-2xl md:text-[2.5rem] md:leading-[3rem] font-bold">
                 Empowering Communities Through Home Adaptation Support
               </p>
               <p className="text-sm lg:text-xl lg:leading-[1.875rem]">
@@ -42,7 +42,7 @@ const LandingPage = () => {
               </p>
             </div>
             <div className="flex flex-col gap-4">
-              <p className="text-2xl ">What we offer</p>
+              <p className="text-2xl">What we offer</p>
               <div className="flex flex-col gap-3">
                 <div className="flex flex-col sm:flex-row justify-between gap-4">
                   <div className="flex gap-2 items-center">
@@ -71,10 +71,10 @@ const LandingPage = () => {
         <section id="how-it-works" className="px-10 pt-16 pb-8">
           <div className="flex flex-col gap-12">
             <div>
-              <h3 className="pb-3 text-secondaryYellow500 text-xl leading-[1.875rem] text-center">
+              <h3 className="pb-3 text-secondaryYellow500 text-xl leading-[1.875rem] text-center font-bold">
                 How it Works
               </h3>
-              <h2 className="text-center text-2xl sm:text-[2.5rem] sm:leading-[1.7025rem] font-bold text-black700">
+              <h2 className="text-center text-2xl sm:text-[2.5rem] sm:leading-[1.7025rem] font-bold text-black700 ">
                 A Glimpse Into How It Works
               </h2>
             </div>
@@ -113,7 +113,7 @@ const LandingPage = () => {
         <section className="px-10">
           <div className="flex flex-col gap-12">
             <div>
-              <h3 className="pb-3 text-xl leading-[1.875rem] text-secondaryYellow500 text-center">
+              <h3 className="pb-3 text-xl leading-[1.875rem] text-secondaryYellow500 text-center font-bold">
                 Testimonials
               </h3>
               <h2 className="text-center text-2xl sm:text-[2.5rem] sm:leading-[1.7025rem] font-bold text-black700">
