@@ -12,11 +12,16 @@ const usersSlice = createSlice({
     deleteUser(state, action: PayloadAction<number>) {
       state = state.filter((user) => user.id !== action.payload);
     },
+    updateUser: (state, action: PayloadAction<UserType>) => {
+      const index = state.findIndex((user) => user.id === action.payload.id);
+      if (index !== -1) state[index] = action.payload;
+    },
     clearAllUsers() {
       return initialState;
     },
   },
 });
-export const { addUser, deleteUser, clearAllUsers } = usersSlice.actions;
+export const { addUser, deleteUser, clearAllUsers, updateUser } =
+  usersSlice.actions;
 
 export default usersSlice.reducer;
