@@ -1,9 +1,9 @@
 interface academicBackgroundType {
   level: "secondary" | "tertiary" | "post-graduate";
-  institutionName: "string";
+  degree: string;
+  institutionName: string;
   startYear: number;
   endYear: number;
-  current: boolean;
 }
 
 interface UserType {
@@ -25,4 +25,4 @@ interface UserType {
   zipCode: string;
   academicBackground: academicBackgroundType[];
 }
-export type { UserType };
+export type { UserType, academicBackgroundType };
