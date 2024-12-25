@@ -54,9 +54,58 @@ const CreateUserForm = () => {
     alert("User added successfully!");
     navigate("/users");
   };
-
+  const tab1Valid = (): boolean => {
+    return (!(
+      errors.firstName ||
+      errors.lastName ||
+      errors.dob ||
+      errors.occupation ||
+      errors.gender
+    ) &&
+      watch("firstName") &&
+      watch("lastName") &&
+      watch("dob") &&
+      watch("occupation") &&
+      watch("gender")) as boolean;
+  };
+  const tab2Valid = (): boolean => {
+    return (
+      !(errors.email || errors.phoneNumber) &&
+      !!(watch("email") && watch("phoneNumber"))
+    );
+  };
+  const tab3Valid = (): boolean => {
+    return (
+      !(
+        errors.address ||
+        errors.city ||
+        errors.state ||
+        errors.country ||
+        errors.zipCode
+      ) &&
+      !!(
+        watch("address") &&
+        watch("city") &&
+        watch("state") &&
+        watch("country") &&
+        watch("zipCode")
+      )
+    );
+  };
+  const tab4Valid = (): boolean => {
+    return (
+      !errors.academicBackground &&
+      !!(
+        watch("academicBackground.0.startYear") &&
+        watch("academicBackground.0.endYear") &&
+        watch("academicBackground.0.level") &&
+        watch("academicBackground.0.degree") &&
+        watch("academicBackground.0.institutionName")
+      )
+    );
+  };
   return (
-    <main className="w-screen h-screen px-4 md:px-8 lg:px-12">
+    <main className="w-screen h-screen overflow-x-hidden max-w-[100vw] px-4 md:px-8 lg:px-12">
       <FormWizard stepSize="sm" onComplete={handleSubmit(handleComplete)}>
         <FormWizard.TabContent title="Personal Details" icon="ti-user">
           <section className="w-full h-full flex flex-col">
@@ -72,7 +121,7 @@ const CreateUserForm = () => {
                     <img
                       src={imagePreview}
                       alt="Profile Preview"
-                      className="w-32 h-32 rounded-full mt-4"
+                      className="w-32 h-32 rounded-full mt-4 object-cover"
                     />
                   )}
 
@@ -174,7 +223,11 @@ const CreateUserForm = () => {
             </div>
           </section>
         </FormWizard.TabContent>
-        <FormWizard.TabContent title="Contact Info" icon="ti-settings">
+        <FormWizard.TabContent
+          title="Contact Info"
+          icon="ti-settings"
+          isValid={tab1Valid()}
+        >
           <section className="w-full h-full flex flex-col">
             <h2 className="text-xl font-semibold mb-4">Contact Info</h2>
             <div className="flex flex-col gap-4">
@@ -235,7 +288,11 @@ const CreateUserForm = () => {
             </div>
           </section>
         </FormWizard.TabContent>
-        <FormWizard.TabContent title="Address" icon="ti-settings">
+        <FormWizard.TabContent
+          title="Address"
+          icon="ti-settings"
+          isValid={tab2Valid()}
+        >
           <section>
             <h2 className="text-xl font-semibold mb-4">Address Info</h2>
             <div className="flex flex-col gap-4">
@@ -321,7 +378,11 @@ const CreateUserForm = () => {
             </div>
           </section>
         </FormWizard.TabContent>
-        <FormWizard.TabContent title="Academic Background" icon="ti-book">
+        <FormWizard.TabContent
+          title="Academic Background"
+          icon="ti-book"
+          isValid={tab3Valid()}
+        >
           <h2 className="text-xl font-semibold mb-4">Academic Background</h2>
           {fields.map((item, index) => (
             <div
@@ -439,7 +500,7 @@ const CreateUserForm = () => {
         <FormWizard.TabContent
           title="Review"
           icon="ti-check"
-          isValid={isValid}
+          isValid={tab4Valid() && isValid}
           validationError={() => alert("Please complete all required fields.")}
         >
           <h2 className="text-xl font-semibold mb-4">
@@ -472,7 +533,12 @@ const CreateUserForm = () => {
               <p>LinkedIn: {watch("linkedInUrl")}</p>
             ) : null}
             {watch("fax") ? <p>Fax: {watch("fax")}</p> : null}
-
+            <h3 className="text-lg font-bold">Address Information</h3>
+            <p>Address: {watch("address")}</p>
+            <p>City: {watch("city")}</p>
+            <p>State: {watch("state")}</p>
+            <p>Country: {watch("country")}</p>
+            <p>Zip Code: {watch("zipCode")}</p>
             <h3 className="text-lg font-bold mt-4">Academic Background</h3>
             <ul>
               {watch("academicBackground")?.map((item, index) => (

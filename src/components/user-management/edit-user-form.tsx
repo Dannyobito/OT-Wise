@@ -92,7 +92,7 @@ const EditUserPage: React.FC = () => {
                 <img
                   src={imagePreview}
                   alt="Profile Preview"
-                  className="w-32 h-32 rounded-full mt-4"
+                  className="w-32 h-32 rounded-full mt-4 object-cover"
                 />
               )}
 
