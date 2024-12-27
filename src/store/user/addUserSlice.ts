@@ -17,7 +17,7 @@ const initialState: UserType = {
   city: "",
   state: "",
   country: "",
-  zipCode: "",
+  zipCode: 0,
   academicBackground: [],
 };
 const addUserSlice = createSlice({
